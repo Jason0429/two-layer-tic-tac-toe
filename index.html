@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tic Tac Toe by Jason Cheung</title>
+		<link rel="stylesheet" href="styles.css" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<script defer src="script.js"></script>
+	<script src="utilities.js"></script>
+
+	<body onload="init();">
+		<div class="header">Two Layer Tic Tac Toe</div>
+		<!-------------INPUT SCREEN ----------------->
+		<div id="inputScreen">
+			<div class="infoForm" id="infoForm">
+				<div class="text">Your Name Here:</div>
+				<input
+					type="text"
+					id="p1"
+					placeholder="Enter Name"
+					class="inputBox"
+				/>
+				<div class="text">Choose your item:</div>
+				<div id="XO">
+					<label>
+						<input
+							id="itemX"
+							value="X"
+							type="radio"
+							name="choice"
+						/>
+						<div id="labelX">X</div>
+					</label>
+
+					<label>
+						<input
+							id="itemO"
+							value="O"
+							type="radio"
+							name="choice"
+						/>
+						<div id="labelO">O</div>
+					</label>
+				</div>
+				<button onclick="submitNames();" id="submitButton">
+					Play Game
+				</button>
+				<br />
+				<button id="instruct-btn" onclick="dropDown();">
+					Instructions
+				</button>
+				<div class="instructions">
+					<hr />
+					<div>X player always goes first</div>
+					<div>
+						Player can replace existing item with own item if it is
+						not locked
+					</div>
+					<div>
+						A tile clicked twice in a row becomes locked, indicated
+						by a red background. Afterwards, you cannot click on it
+					</div>
+					<div>After every game, items switch</div>
+					<div>
+						Player wins by having 3 of the same items in a row
+					</div>
+					<hr />
+				</div>
+			</div>
+		</div>
+
+		<!-- Grid -->
+		<div id="game">
+			<table class="board" id="grid">
+				<tr>
+					<td id="c1" class="item" value="0"></td>
+					<td id="c2" class="item" value="1"></td>
+					<td id="c3" class="item" value="2"></td>
+				</tr>
+				<tr>
+					<td id="c4" class="item" value="3"></td>
+					<td id="c5" class="item" value="4"></td>
+					<td id="c6" class="item" value="5"></td>
+				</tr>
+				<tr>
+					<td id="c7" class="item" value="6"></td>
+					<td id="c8" class="item" value="7"></td>
+					<td id="c9" class="item" value="8"></td>
+				</tr>
+			</table>
+
+			<!-- Player Names Info -->
+			<div id="setXO">
+				<span id="username"></span>:&ensp;<span id="item-left"></span
+				>&ensp; Computer:&ensp;<span id="item-right"></span>
+			</div>
+
+			<!-- Player Turn Message -->
+			<div id="playerTurn">
+				<div id="turnText">
+					It is <span id="playerNameTurn"></span>'s Turn
+				</div>
+			</div>
+
+			<!-- Player Win/Tie Status Bar-->
+			<div id="statusBar">
+				<table id="statusColumn1">
+					<tr>
+						<td id="user-status"></td>
+					</tr>
+					<tr>
+						<td id="user-score">0</td>
+					</tr>
+				</table>
+
+				<table id="statusColumn2">
+					<tr>
+						<td id="ties">Ties</td>
+					</tr>
+					<tr>
+						<td id="tiesNum">0</td>
+					</tr>
+				</table>
+
+				<table id="statusColumn3">
+					<tr>
+						<td id="computer-status">Computer</td>
+					</tr>
+					<tr>
+						<td id="computer-score">0</td>
+					</tr>
+				</table>
+			</div>
+
+			<!-- Menu and Reset Buttons -->
+			<div id="options">
+				<button class="menu" id="menuButton" onclick="init();">
+					Back
+				</button>
+				&ensp;
+				<button class="resetButton" id="resetButton" onclick="reset();">
+					Reset
+				</button>
+			</div>
+		</div>
+	</body>
+</html>
